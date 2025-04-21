@@ -14,10 +14,18 @@ civic_info.representative_info_by_address(address: 80_202, levels: 'country',
                                           roles: %w[legislatorUpperBody legislatorLowerBody])
 # <Google::Apis::CivicinfoV2::RepresentativeInfoResponse:0x007faf2d9088d0 @divisions={"ocd-division/country:us/state:co"=>#<Google::Apis::CivicinfoV2::GeographicDivision:0x007faf2e55ea80 @name="Colorado", @office_indices=[0]> } > ...continues...
 
+
+
+
+
+
+
+
 def clean_zipcode(zipcode)
   zipcode.to_s.rjust(5, '0')[0, 4]
 end
 
+# if the zipcode is exactly five digits, assume that it is ok
 def legislator_by_zipcode(_zip)
   civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
   # <Google::Apis::CivicinfoV2::CivicInfoService:0x007faf2dd47108 ... >
